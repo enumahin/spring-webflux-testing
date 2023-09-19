@@ -17,7 +17,7 @@ public class EmployeeController {
         this.employeeService = employeeService;
     }
 
-    @GetMapping
+    @GetMapping("")
     public Flux<Employee> fetchAll(){
         return employeeService.fetchAll();
     }
