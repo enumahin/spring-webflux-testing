@@ -1,7 +1,7 @@
 job('First-Java-Compilation-DSL'){
     description("First Maven job generated bt the DSL on ${new Date()}")
     scm{
-        git("git@github.com:enumahin/spring-webflux-testing.git", 'master')
+        git("https://github.com/enumahin/spring-webflux-testing.git", 'master')
     }
     triggers{
         scm("* * * * *")
