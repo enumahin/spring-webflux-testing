@@ -1,25 +1,15 @@
 pipeline {
     agent any
     stages {
-        stage('Init'){
-            steps {
-                echo 'Hi, this is Jackie Melody from AlienWorkspace'
-                echo 'We are Starting the Testing'
-            }
-        }
-        stage('Build') {
+        stage('Build Application') {
             steps{
-                echo 'Building Sample Maven Project'
+                sh 'mvn clean package'
             }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying in Staging Area'
-            }
-        }
-        stage('Deploy Production') {
-            steps {
-                echo 'Deploying in Production Area'
+            post {
+                success {
+                    echo "Now Archiving the Artifacts..."
+                    archiveArtifacts artifacts: 'target/*.war'
+                }
             }
         }
     }
