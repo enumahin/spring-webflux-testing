@@ -11,6 +11,6 @@ job('First-Java-Compilation-DSL'){
     }
     publishers {
         // archive the war file generated
-        archiveArtifacts '../*.jar'
+        archiveArtifacts 'target/*.jar'
     }
 }
