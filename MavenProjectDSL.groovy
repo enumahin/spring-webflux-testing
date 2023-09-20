@@ -1,9 +1,9 @@
 job('First-Java-Compilation-DSL'){
     description("First Maven job generated bt the DSL on ${new Date()}")
     scm{
-        git("git@github.com:enumahin/spring-webflux-testing.git", master)
+        git("git@github.com:enumahin/spring-webflux-testing.git", 'master')
     }
-    trigger{
+    triggers{
         scm("* * * * *")
     }
     steps{
@@ -11,6 +11,6 @@ job('First-Java-Compilation-DSL'){
     }
     publishers {
         // archive the war file generated
-        archiveArtifacts('../*.jar')
+        archiveArtifacts '../*.jar'
     }
 }
