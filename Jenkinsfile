@@ -8,6 +8,7 @@ pipeline {
             post {
                 success {
                     echo "Now Archiving the Artifacts..."
+                    sh 'mv target/*.war target/springwebflux.war'
                     archiveArtifacts artifacts: 'target/*.war'
                 }
             }
